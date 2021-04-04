@@ -1,0 +1,32 @@
+.main-container {
+  text-align: center;
+  h1 {
+    color: #3d4459;
+  }
+}
+.itens-container {
+  margin: 40px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.each-item-container {
+  background-color: #57d3e4;
+  margin: 8px;
+  border-radius: 5px;
+  text-align: center;
+  max-width: 60em;
+  transition: 1s;
+  a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    //margin: 16px;
+  }
+  &:hover {
+    background-color: #6725DA;
+    transform: scale(1.02);
+    filter: drop-shadow(1px 4px 0.75rem rgba(65, 41, 45, 0.13));
+  }
+}

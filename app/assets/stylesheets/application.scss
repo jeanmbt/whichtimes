@@ -10,6 +10,38 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
- *= require_self
+ * require bootstrap
+ * require jquery
  */
+
+ @import "bootstrap/scss/bootstrap";
+ @import 'navbar';
+ @import 'index';
+ @import 'show';
+ // global styles
+body {
+  height: 100%;
+  width: 100%;
+}
+.grid-wrapper {
+  min-height: 100vh;
+  display: grid;
+  grid-template-areas:
+  "navbar"
+  "content"
+  "footer";
+  grid-template-rows: 244px auto 15px;
+  img {
+    padding: 16px;
+  }
+}
+
+.content {
+  z-index: 0;
+  background-color: transparent;
+}
+
+.footer {
+  content: "";
+  background-color: #514CC7;
+}

@@ -1,2 +1,10 @@
-<h1>Companies#index</h1>
-<p>Find me in app/views/companies/index.html.erb</p>
+<div class="main-container container">
+  <h1>Companies</h1>
+  <div class="itens-container container">
+    <% @companies.each do |company| %>
+      <div class="each-item-container container">
+        <h4><%= link_to "#{company.name}", company_path(company)  %></h4>
+      </div>
+    <% end %>    
+  </div>
+</div>

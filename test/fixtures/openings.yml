@@ -1,0 +1,25 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  company: one
+  day: MyString
+  morning_open_at_hours: 1
+  morning_opens_at_minutes: 1
+  morning_closes_at_hours: 1
+  morning_closes_at_minutes: 1
+  afternoon_opens_at_hours: 1
+  afternoon_opens_at_minutes: 1
+  afternoon_closes_at_hours: 1
+  afternoon_closes_at_minutes: 1
+
+two:
+  company: two
+  day: MyString
+  morning_open_at_hours: 1
+  morning_opens_at_minutes: 1
+  morning_closes_at_hours: 1
+  morning_closes_at_minutes: 1
+  afternoon_opens_at_hours: 1
+  afternoon_opens_at_minutes: 1
+  afternoon_closes_at_hours: 1
+  afternoon_closes_at_minutes: 1

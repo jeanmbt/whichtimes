@@ -16,13 +16,14 @@
   margin: 8px;
   border-radius: 5px;
   text-align: center;
-  max-width: 60em;
+  max-width: 44em;
   transition: 1s;
   a {
+    margin-top: 4px;
     display: block;
     color: white;
     text-decoration: none;
-    //margin: 16px;
+    font-size: 21px;
   }
   &:hover {
     background-color: #6725DA;

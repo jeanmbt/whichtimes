@@ -18,7 +18,19 @@
  @import 'navbar';
  @import 'index';
  @import 'show';
+ @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&family=Varela+Round&display=swap');
+
  // global styles
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Varela Round', sans-serif;
+}
+h1 {
+  font-weight: 900;
+}
+p, a {
+  font-family: 'Montserrat', sans-serif;
+}
 body {
   height: 100%;
   width: 100%;

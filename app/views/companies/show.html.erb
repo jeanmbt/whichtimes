@@ -1,0 +1,19 @@
+<div class="main-container container">
+  <h1><%= @company.name %></h1>
+  <div class="show-container container">
+    <%= link_to "back", companies_path %>
+    <h4>Opening Hours</h4>
+    
+    <!-- Creates a Div for every day of the week ( Opening.day: 'Mon' )-->
+    <% @tags.each do |tag| %>
+    
+      <!-- Set bold and background if div's day is today -->
+      <div class="each-day <%= "today" if @company.find_hours[@sym_days[@c]][:day] == @today %>">
+        <h5><%= @days[@c] %></h5>
+        <%= tag %>
+        <% @c += 1 %>
+      </div>
+    <% end %>
+    
+  </div>
+</div>

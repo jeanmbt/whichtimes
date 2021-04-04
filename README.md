@@ -10,13 +10,13 @@ My biggest challenges was to make it as DRY as possible and to think through on 
 I would say that what took me the most time was actually thinking through some realistic data to be displayed. 
 
 This is the second repository I had to create last time because I had database conflicts with Heroku, as when I created a new rails app I did not set Postgres as the DB and it was demanding too much time to fix that.
-==The former Repository is [here](https://github.com/jeanmbt/careloop-challenge)== in case you want to see the process of creation and the commits and pushes.
+The former Repository is [here](https://github.com/jeanmbt/careloop-challenge) in case you want to see the process of creation and the commits and pushes.
 
 My next steps would be to display information for closed days and for 24h days, since it is mostly set up and because of unexpected bugs I didn't find the time to finish it.
 
 
 
-==The link for the Production version of the Application is [here](https://careloop-challenge.herokuapp.com/) .==
+The link for the Production version of the Application is [here](https://careloop-challenge.herokuapp.com/) .
 
 # Installing the App Locally
 

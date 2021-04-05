@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_04_193435) do
+ActiveRecord::Schema.define(version: 2021_04_05_083916) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,8 +34,8 @@ ActiveRecord::Schema.define(version: 2021_04_04_193435) do
     t.integer "afternoon_closes_at_minutes"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "always_open?", default: false
-    t.boolean "closed_day?", default: false
+    t.boolean "always_open", default: false
+    t.boolean "closed_day", default: false
     t.index ["company_id"], name: "index_openings_on_company_id"
   end
 

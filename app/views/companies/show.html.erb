@@ -10,7 +10,7 @@
       <!-- Set bold and background if div's day is today -->
       <div class="each-day <%= "today" if @company.find_hours[@sym_days[@c]][:day] == @today %>">
         <h5><%= @days[@c] %></h5>
-        <p><%= tag %></p>
+        <%= render html: tag.html_safe %>
         
         <% @c += 1 %>
       </div>

@@ -58,9 +58,9 @@ class Company < ApplicationRecord
 
   # checks if the Opening is a Normal day, a Closed day or a 24H day.
   def check_hour(o)
-    if o.closed_day? 
+    if o.closed_day
       'Closed'
-    elsif o.always_open?
+    elsif o.always_open
       '24H'
     else
       true

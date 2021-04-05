@@ -18,6 +18,7 @@
   text-align: center;
   max-width: 44em;
   transition: 1s;
+  
   a {
     margin-top: 4px;
     display: block;
@@ -29,6 +30,14 @@
     background-color: #6725DA;
     transform: scale(1.02);
     filter: drop-shadow(1px 4px 0.75rem rgba(65, 41, 45, 0.13));
+  }
+}
+@media screen and (max-width: 600px) {
+  .each-item-container {
+    height: 4em !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
   }
 }
 

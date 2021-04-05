@@ -10,7 +10,7 @@
     background-position: right;
   }
   .grid-wrapper {
-    grid-template-rows: 96px auto 15px;
-    img { height: 25% ;}
+    grid-template-rows: 96px auto 15px !important;
+    img { height: 60% ;}
   }
 }

@@ -29,13 +29,14 @@ $black: #33312E;
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Prompt', sans-serif;
-  //color: $black;
+  color: #33312E;
 }
 h1 {
   font-weight: 900;
 }
 p, a {
   font-family: 'Roboto', sans-serif;
+  text-decoration: none !important;
 }
 body {
   height: 100%;
@@ -58,6 +59,12 @@ body {
 .content {
   z-index: 0;
   background-color: transparent;
+  display: grid;
+  grid-template-areas: 
+  "main-container"
+  "pag-grid"
+  ;
+  grid-template-rows: auto 36px;
 }
 
 .footer {

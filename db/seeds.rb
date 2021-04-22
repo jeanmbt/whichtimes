@@ -55,7 +55,7 @@ sufix = %w[Healthcare Health Clinics Doctors Associated Gerontology Physiotherap
 puts "🏥 Creating Companies... \n "
 
 # Create 8 Companies
-8.times do |i|
+30.times do |i|
   company = Company.create!(name: "#{Faker::Company.name} #{sufix.sample}")
   puts "#{i + 1}. #{company.name}"
 end

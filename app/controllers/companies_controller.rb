@@ -1,18 +1,31 @@
+# Companies
 class CompaniesController < ApplicationController
-  def index
-    @companies = Company.all
+  def create
+    @company = Company.new(company_params)
+    if @company.save
+      redirect_to companies_path(company)
+    else
+      redirect_to companies_path(params: 'not-created')
+    end
   end
-  
+
+  def new
+    @company = Company.new
+  end
+
+  def index
+    @companies = Company.all.page params[:page]
+  end
+
   def show
     @company = Company.find(params[:id])
     @today = Time.now.strftime('%a')
     @tags = clean_show
-    @days = %w[ Mon Tue Wed Thu Fri Sat Sun ]
-    @sym_days = %i[ mon tue wed thu fri sat sun ]
+    @days = %w[Mon Tue Wed Thu Fri Sat Sun]
+    @sym_days = %i[mon tue wed thu fri sat sun]
     @c = 0
-    
   end
-  
+
   private
 
   # Creates a div to be passed on the view to display each day's opening hours
@@ -27,7 +40,7 @@ class CompaniesController < ApplicationController
     end
     html_days
   end
-  
+
   def closed?(day, time)
     case @company.find_hours[day][time]
     when 'Closed'

@@ -4,7 +4,7 @@
   justify-content: center;
   align-items: center;
   border: 1px solid #29575d38;
-  border-radius: 30px;
+  border-radius: 5px;
   max-width: 60em;
   margin-top: 40px;
   margin-bottom: 40px;
@@ -21,11 +21,15 @@
   a {
     align-self: baseline;
     padding: 8px;
-    color: $secondary;
+    color: #27354E;
+    &:hover  {
+      color: rgb(238, 108, 77);
+      font-weight: bolder;
+    }
   }
 
   .each-day {
-    border-radius: 30px;
+    border-radius: 5px;
     padding: 8px;
     display: flex;
     flex-direction: row;
@@ -35,7 +39,7 @@
     width: 24em;
     margin: 2px;
     &:hover {
-      background-color: #b4cfd393 ;
+      background-color: rgba(238, 109, 77, 0.431) ;
     }
     h5  {
       margin: 0 0 0 1em;
@@ -57,10 +61,11 @@
   transform: scale(1.02);
   color: white;
   &:hover {
-    background-color: $secondary !important;
+    background-color: #27354E !important;
   }
   h5 {
     font-weight: bold !important;
+    color: white;
   }
 }
 

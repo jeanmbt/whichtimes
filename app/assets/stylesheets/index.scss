@@ -12,22 +12,39 @@
   flex-direction: column;
 }
 .each-item-container {
-  background-image: linear-gradient(180deg, rgba(108, 117, 125, 0.534) 0%, rgba(51, 49, 46, 0.52) 100%), url("btn");
+  background-image: linear-gradient(180deg, rgba(204, 204, 204, 10.685) 0%, rgba(194, 194, 194, 0.52) 100%), url("btn");
   background-size: cover;
-  filter: brightness(110%);
+  filter: contrast(110%);
   margin: 8px;
-  border-radius: 30px;
+  border-radius: 5px;
   text-align: center;
   max-width: 44em;
   transition: 1s;
+  a {
+    margin-top: 4px;
+    display: block;
+    color: #181717;
+    ;
+    font-size: 18px;
+    padding: 4px;
+  }
+  &:hover {
+    a {
+      color: white !important;
+    }
+    background-image: linear-gradient(180deg, rgba(39, 41, 77, 0.534) 0%, rgba(94, 89, 102, 0.52) 100%), url("btn");
+    transform: scale(1.02);
+    filter: drop-shadow(1px 1px 0.75rem rgba(65, 41, 45, 0.171)) saturate(105%) brightness(105%) hue-rotate(-10deg);
+  }
+  // Add your company
   &:last-child {
     background: transparent;
     border: 1px solid #27354E;
     transition: 0s;
     &:hover {
-      background-color: #27354E;
-      color: $secondary;
-      border: 1px solid #27354E ;
+      background-color: rgb(238, 108, 77);
+      color: rgb(238, 108, 77) ;
+      border: 1px solid rgb(238, 108, 77) ;
       transform: scale(1);
       filter: drop-shadow(1px 1px 0.75rem rgba(65, 41, 45, 0.171)) saturate(100%) brightness(100%) hue-rotate(0deg);
     }
@@ -35,22 +52,33 @@
       color:#27354E;
     }
   }
+  
+}
+
+
+.pages-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: larger;
+  margin-bottom: 8px;
   a {
-    margin-top: 4px;
-    display: block;
-    color: white;
-    text-decoration: none;
-    font-size: 21px;
-  }
-  &:hover {
-    a {
-      color: white !important;
+    margin: 4px;
+    color: #27354E  !important;
+    padding-top: 5px;
+    &:hover {
+      color: rgb(238, 108, 77) !important;
+      font-weight: bolder;
     }
-    background-color: #6725DA;
-    transform: scale(1.02);
-    filter: drop-shadow(1px 1px 0.75rem rgba(65, 41, 45, 0.171)) saturate(105%) brightness(105%) hue-rotate(-10deg);
+  }
+  .current {
+    color: black;
+    font-weight: bolder;
+    transform: scale(1.2);
+    margin:  0 6px;
   }
 }
+
 @media screen and (max-width: 600px) {
   .each-item-container {
     height: 4em !important;
@@ -59,4 +87,3 @@
     align-items: center !important;
   }
 }
-

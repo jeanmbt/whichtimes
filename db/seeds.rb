@@ -80,4 +80,23 @@ companies.each do |company|
   puts "\n \n"
 end
 
+# Assign some Sundays as closed_day
+sundays = Opening.where(day: 'Sun').sample(6)
+sundays.each do |o|
+  o.closed_day = true
+  o.save
+  puts "#️⃣ #{o.company.name} closes now on Sundays \n "
+end
+
+# Assign a company as always_open
+2.times do
+  always_open_company = Company.all.sample
+  always_open_opening = Opening.where(company_id: always_open_company.id)
+  always_open_opening.each do |o|
+    o.always_open = true
+    o.save
+  end
+  puts "#️⃣ #{always_open_company.name} is now 24h \n "
+end
+
 puts "//////// Seeds ended! ////////  \n  \n "

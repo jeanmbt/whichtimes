@@ -18,6 +18,7 @@
  @import 'navbar';
  @import 'index';
  @import 'show';
+ @import 'settings';
  @import url('https://fonts.googleapis.com/css2?family=Prompt:wght@400;600&family=Roboto&display=swap');
 
  // global styles
@@ -42,7 +43,7 @@ body {
   "navbar"
   "content"
   "footer";
-  grid-template-rows: 244px auto 15px;
+  grid-template-rows: 5rem auto 15px;
   img {
     padding: 16px;
   }

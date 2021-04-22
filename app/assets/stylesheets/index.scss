@@ -12,7 +12,9 @@
   flex-direction: column;
 }
 .each-item-container {
-  background-color: #57d3e4;
+  background-image: url("btn");
+  background-size: cover;
+  filter: brightness(110%);
   margin: 8px;
   border-radius: 30px;
   text-align: center;

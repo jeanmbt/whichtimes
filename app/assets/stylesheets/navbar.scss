@@ -1,9 +1,12 @@
 .grid-navbar {
-  background-image: image-url('bar.svg');
+  background-image: image-url('nav-gradient');
   z-index: 2;
   background-size: cover;
   margin-left: -5px;
   filter: drop-shadow(0 0.5mm 1mm #5683ff6b) contrast(125%);
+  img { 
+    height:  5rem;
+  }
 }
 @media screen and (max-width: 600px) {
   .grid-navbar {

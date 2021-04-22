@@ -1,0 +1,16 @@
+.grid-navbar {
+  background-image: image-url('bar.svg');
+  z-index: 2;
+  background-size: cover;
+  margin-left: -5px;
+  filter: drop-shadow(0 0.5mm 1mm #5683ff6b) contrast(125%);
+}
+@media screen and (max-width: 600px) {
+  .grid-navbar {
+    background-position: right;
+  }
+  .grid-wrapper {
+    grid-template-rows: 96px auto 15px !important;
+    img { height: 60% ;}
+  }
+}

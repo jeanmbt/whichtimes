@@ -18,10 +18,14 @@
  @import 'navbar';
  @import 'index';
  @import 'show';
- @import 'settings';
  @import url('https://fonts.googleapis.com/css2?family=Prompt:wght@400;600&family=Roboto&display=swap');
 
  // global styles
+ 
+$secondary-blue: #7BCBFF;
+$primary-which: #2A4DDE;
+$opposite: #EE6C4D;
+$black: #33312E;
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Prompt', sans-serif;
@@ -58,5 +62,5 @@ body {
 
 .footer {
   content: "";
-  background-color: #514CC7;
+  background-color: #27354E;
 }

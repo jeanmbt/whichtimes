@@ -6,5 +6,12 @@
         <h4><%= link_to "#{company.name}", company_path(company)  %></h4>
       </div>
     <% end %>    
+      <div class="each-item-container container">
+        <h4><%= link_to "Add your Company", "#"  %></h4>
+      </div>
   </div>
+
+</div>
+<div class="pag-grid pages-container">
+  <%= paginate @companies %>
 </div>

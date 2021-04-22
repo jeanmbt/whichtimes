@@ -4,13 +4,12 @@
   justify-content: center;
   align-items: center;
   border: 1px solid #29575d38;
-  border-radius: 30px;
+  border-radius: 5px;
   max-width: 60em;
   margin-top: 40px;
   margin-bottom: 40px;
   background-color: #57d4e40a;
   padding: 8px;
-  //filter: drop-shadow(1px 4px 0.75rem rgba(65, 41, 45, 0.13));
   -webkit-box-shadow: 0px 5px 16px -7px #00000025, 5px 5px 15px 5px rgba(0,0,0,0);
   box-shadow: 0px 5px 16px -7px #00000025, 5px 5px 15px 5px rgba(0,0,0,0);
   box-shadow: inset 0em -0.3em 0.9em rgba(0, 0, 0, 0.048);
@@ -22,10 +21,15 @@
   a {
     align-self: baseline;
     padding: 8px;
+    color: #27354E;
+    &:hover  {
+      color: rgb(238, 108, 77);
+      font-weight: bolder;
+    }
   }
 
   .each-day {
-    border-radius: 30px;
+    border-radius: 5px;
     padding: 8px;
     display: flex;
     flex-direction: row;
@@ -35,7 +39,7 @@
     width: 24em;
     margin: 2px;
     &:hover {
-      background-color: #b4cfd393 ;
+      background-color: rgba(238, 109, 77, 0.431) ;
     }
     h5  {
       margin: 0 0 0 1em;
@@ -52,13 +56,16 @@
 }
 .today {
   font-weight: bold !important;
-  background-color: #57d3e4 !important;
+  background-image: linear-gradient(180deg, rgba(108, 117, 125, 0.534) 0%, rgba(51, 49, 46, 0.52) 100%), url("btn");
+  background-size: cover;
   transform: scale(1.02);
+  color: white;
   &:hover {
-    background-color: #57d3e4 !important;
+    background-color: #27354E !important;
   }
   h5 {
     font-weight: bold !important;
+    color: white;
   }
 }
 

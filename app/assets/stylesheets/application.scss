@@ -18,22 +18,30 @@
  @import 'navbar';
  @import 'index';
  @import 'show';
- @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&family=Varela+Round&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Prompt:wght@400;600&family=Roboto&display=swap');
 
  // global styles
+ 
+$secondary-blue: #7BCBFF;
+$primary-which: #2A4DDE;
+$opposite: #EE6C4D;
+$black: #33312E;
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Varela Round', sans-serif;
+  font-family: 'Prompt', sans-serif;
+  color: #33312E;
 }
 h1 {
   font-weight: 900;
 }
 p, a {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Roboto', sans-serif;
+  text-decoration: none !important;
 }
 body {
   height: 100%;
   width: 100%;
+
 }
 .grid-wrapper {
   min-height: 100vh;
@@ -42,7 +50,7 @@ body {
   "navbar"
   "content"
   "footer";
-  grid-template-rows: 244px auto 15px;
+  grid-template-rows: 5rem auto 15px;
   img {
     padding: 16px;
   }
@@ -51,9 +59,15 @@ body {
 .content {
   z-index: 0;
   background-color: transparent;
+  display: grid;
+  grid-template-areas: 
+  "main-container"
+  "pag-grid"
+  ;
+  grid-template-rows: auto 36px;
 }
 
 .footer {
   content: "";
-  background-color: #514CC7;
+  background-color: #27354E;
 }

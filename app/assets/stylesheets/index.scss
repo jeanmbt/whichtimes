@@ -12,7 +12,7 @@
   flex-direction: column;
 }
 .each-item-container {
-  background-image: linear-gradient(180deg, rgba(204, 204, 204, 10.685) 0%, rgba(194, 194, 194, 0.52) 100%), url("btn");
+  background-image: linear-gradient(180deg, rgba(204, 204, 204, 10.685) 0%, rgba(194, 194, 194, 0.52) 100%), image-url("btn");
   background-size: cover;
   filter: contrast(110%);
   margin: 8px;

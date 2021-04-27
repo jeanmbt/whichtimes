@@ -14,14 +14,22 @@
  * require jquery
  */
 
- @import "bootstrap/scss/bootstrap";
- @import 'navbar';
- @import 'index';
- @import 'show';
- @import url('https://fonts.googleapis.com/css2?family=Prompt:wght@400;600&family=Roboto&display=swap');
+ // External Libraries
+
+@import "bootstrap/scss/bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+// Components, Partials, Pages
+@import 'components/index';
+@import 'index';
+@import 'show';
+
+ // Fonts
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@400;600&family=Roboto&display=swap');
 
  // global styles
- 
+
 $secondary-blue: #7BCBFF;
 $primary-which: #2A4DDE;
 $opposite: #EE6C4D;

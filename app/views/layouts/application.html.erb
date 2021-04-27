@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>CareloopChallenge</title>
+    <title>Which.hours</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -16,11 +16,11 @@
 
   <body>
     <%= render 'shared/flashes' %>
+    
     <div class="grid-wrapper">
-      <div class="grid-navbar">
-        <%= link_to image_tag("logo.svg"), companies_path %>
-      </div>
+        <%= render  "shared/navbar" %>
       <div class="content">
+      
         <%= yield %>
       
       </div>

@@ -1,0 +1,61 @@
+
+.grid-navbar {
+  background-image: linear-gradient(180deg, rgba(108, 117, 125, 0.534) 0%, rgba(51, 49, 46, 0.52) 100%), image-url('nav-gradient');
+  z-index: 2;
+  background-size: cover;
+  margin-left: -5px;
+  filter: drop-shadow(0 0.5mm 1mm #5683ff6b) contrast(125%);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  // LOGO
+  img { 
+    height:  5rem;
+  }
+
+  // DROPDOWN
+  // Dropdown button
+  p {
+    color: white;
+
+  }
+  .user-drop-btn {
+    margin-right: 16px;
+    font-size: 36px;
+    cursor: pointer;
+    margin-right: 16px;
+  }
+  // Dropdown menu
+  .user-drop-menu {
+    position: fixed;
+    right: 33px;
+    top: 40px;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    .drop-item {
+      color: $black;
+      font-size: 1.2rem;
+      margin: 0;
+      padding: 0.5rem 3rem;
+      &:hover {
+        background-image: linear-gradient(180deg, rgba(39, 41, 77, 0.534) 0%, rgba(94, 89, 102, 0.52) 100%), url("btn");
+        color: white;
+      }
+    }
+  }
+}
+
+
+@media screen and (max-width: 600px) {
+  .grid-navbar {
+    background-position: right;
+  }
+  .grid-wrapper {
+    grid-template-rows: 96px auto 15px !important;
+    img { height: 60% ;}
+  }
+}

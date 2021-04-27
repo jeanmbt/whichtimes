@@ -81,7 +81,7 @@ companies.each do |company|
 end
 
 # Assign some Sundays as closed_day
-sundays = Opening.where(day: 'Sun').sample(6)
+sundays = Opening.where(day: 'Sun').sample(15)
 sundays.each do |o|
   o.closed_day = true
   o.save
@@ -89,7 +89,7 @@ sundays.each do |o|
 end
 
 # Assign a company as always_open
-2.times do
+10.times do
   always_open_company = Company.all.sample
   always_open_opening = Opening.where(company_id: always_open_company.id)
   always_open_opening.each do |o|

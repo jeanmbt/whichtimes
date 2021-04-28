@@ -3,9 +3,12 @@
   <p><i id= "UserDropBtn" class="user-drop-btn far fa-user-circle"></i></p>
   <div id= "UserDropMenu" class="user-drop-menu">
     <%# <ul class="drop-list"> %>
-      <p class="drop-item">Log in</p>
-      <p class="drop-item">Log in</p>
-      <p class="drop-item">Log in</p>
+      <% if user_signed_in? %>
+          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "drop-item" %>
+      <% else %>
+        <%= link_to "Log in", new_user_session_path, class: "drop-item"%>
+        <%= link_to "Sign up", new_user_registration_path, class: "drop-item" %>
+      <% end %>
     <%# </ul> %>
   </div>
 </div>

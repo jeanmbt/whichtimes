@@ -1,18 +1,5 @@
 # Companies
 class CompaniesController < ApplicationController
-  def create
-    @company = Company.new(company_params)
-    if @company.save
-      redirect_to companies_path(company)
-    else
-      redirect_to companies_path(params: 'not-created')
-    end
-  end
-
-  def new
-    @company = Company.new
-  end
-
   def index
     @companies = Company.all.page params[:page]
   end
@@ -24,6 +11,29 @@ class CompaniesController < ApplicationController
     @days = %w[Mon Tue Wed Thu Fri Sat Sun]
     @sym_days = %i[mon tue wed thu fri sat sun]
     @c = 0
+  end
+
+  def new
+    @company = Company.new
+  end
+
+  def create
+    @company = Company.new(company_params)
+    if @company.save
+      redirect_to companies_path(company)
+      flash[:notice] = " New Company: \n #{@project.title} was added."
+    else
+      redirect_to companies_path(params: 'not-created')
+      flash[:notice] = 'Company not added. '
+    end
+  end
+
+  def edit
+    @company = Company.find(params[:id])
+  end
+
+  def update
+    
   end
 
   private
@@ -41,6 +51,7 @@ class CompaniesController < ApplicationController
     html_days
   end
 
+  # checks if opening is a closed day or 24h day
   def closed?(day, time)
     case @company.find_hours[day][time]
     when 'Closed'

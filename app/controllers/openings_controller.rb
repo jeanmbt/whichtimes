@@ -1,8 +1,32 @@
 class OpeningsController < ApplicationController
 
-  def update
+  def new
+    @opening = Opening.new
+  end
+
+  def create
+    @opening = Opening.new(opening_params)
+    @company = Company.find(params[:company_id])
+    @opening.company = @company
+    if @opening.save
+      redirect_to companies_path(@company)
+      flash[:notice] = " New opening \n #{@project.title} was created."
+    else
+      flash[:notice] = ' New opening not created '
+    end
+  end
+
+  def edit
     @openings = Opening.find(params[:id])
-    @openings.update(opening_params)
+  end
+
+  def update
+    if @opening.update
+      redirect_to companies_path(@company)
+      flash[:notice] = " Opening \n #{@project.title} was updated."
+    else
+      flash[:notice] = ' Opening was not updated '
+    end
     redirect_to companies_path
   end
 

@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
 
-  get 'openings/edit'
-  get 'openings/update'
+
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
   root to: 'companies#index' 
-  resources :companies, only: %i[ index show ]
+  resources :companies  do
+    resources :openings, except: %i[ show index ]
+  end
 
   devise_for :users
   # [...]

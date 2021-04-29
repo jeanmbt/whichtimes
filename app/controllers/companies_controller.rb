@@ -15,6 +15,8 @@ class CompaniesController < ApplicationController
 
   def new
     @company = Company.new
+
+    
   end
 
   def create
@@ -60,6 +62,15 @@ class CompaniesController < ApplicationController
       '42px'
     else
       '16px'
+    end
+  end
+
+  # Logic for adding openings when creating a new Company from browser
+  def openings_logic
+    weekdays = %w[Mon Tue Wed Thu Fri Sat Sun]
+    weekdays.each do |day|
+      @opening_hours = Opening.new(company_id: @company.id, day: day)
+      @opening_hours.day = day
     end
   end
 end

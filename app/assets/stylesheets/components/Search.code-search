@@ -1,0 +1,52 @@
+# Query: sessions-container
+# ContextLines: 1
+
+12 results - 12 files
+
+app/views/devise/confirmations/new.html.erb:
+  1: <div class="container content-container">
+  2    <h2>Resend confirmation instructions</h2>
+
+app/views/devise/mailer/confirmation_instructions.html.erb:
+  1: <div class="container content-container">
+  2    <p>Welcome <%= @email %>!</p>
+
+app/views/devise/mailer/email_changed.html.erb:
+  1: <div class="container content-container">
+  2    <p>Hello <%= @email %>!</p>
+
+app/views/devise/mailer/password_change.html.erb:
+  1: <div class="container content-container">
+  2    <p>Hello <%= @resource.email %>!</p>
+
+app/views/devise/mailer/reset_password_instructions.html.erb:
+  1: <div class="container content-container">
+  2    <p>Hello <%= @resource.email %>!</p>
+
+app/views/devise/mailer/unlock_instructions.html.erb:
+  1: <div class="container content-container">
+  2    <p>Hello <%= @resource.email %>!</p>
+
+app/views/devise/passwords/edit.html.erb:
+  1: <div class="container content-container">
+  2    <h2>Change your password</h2>
+
+app/views/devise/passwords/new.html.erb:
+  1: <div class="container content-container">
+  2    <h2>Forgot your password?</h2>
+
+app/views/devise/registrations/edit.html.erb:
+  1: <div class="container content-container">
+  2    <h2>Edit <%= resource_name.to_s.humanize %></h2>
+
+app/views/devise/registrations/new.html.erb:
+  1: <div class="container content-container">
+  2    <h2>Sign up</h2>
+
+app/views/devise/sessions/new.html.erb:
+  1: <div class="container content-container">
+  2    <h2>Log in</h2>
+
+app/views/devise/unlocks/new.html.erb:
+  1: <div class="container content-container">
+  2    <h2>Resend unlock instructions</h2>

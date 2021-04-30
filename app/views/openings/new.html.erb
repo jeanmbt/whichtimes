@@ -1,0 +1,31 @@
+<div class="content-container container">
+  <div class="new-company-container">
+    <h1>Now add <%= @company.name %>'s times:</h1>
+      <% @all_openings.each do |o| %>
+        <%= simple_form_for [@company, o] do |f| %>
+          <h2><%= o.day %>:</h2>
+          <%= f.input :closed_day, label: "closed" %>
+          <%= f.input :always_open, label: "24h" %>
+          <h4>mornings</h4>
+          <p>from:</p>
+          <%= f.input :morning_opens_at_hours, label: "morning_opens_at_hours" %>
+          <%= f.input :morning_opens_at_minutes, label: "morning_opens_at_minutes" %>
+
+          <p>to:</p>
+          <%= f.input :morning_closes_at_hours, label: "morning_closes_at_hours" %>
+          <%= f.input :morning_closes_at_minutes, label: "morning_closes_at_minutes" %>
+
+          <h4>afternoons</h4>
+          <p>from:</p>
+          <%= f.input :afternoon_opens_at_hours, label: "afternoon_opens_at_hours" %>
+          <%= f.input :afternoon_opens_at_minutes, label: "afternoon_opens_at_minutes" %>
+
+          <p>to:</p>
+          <%= f.input :afternoon_closes_at_hours, label: "afternoon_closes_at_hours" %>
+          <%= f.input :afternoon_closes_at_minutes, label: "morning_closes_at_minutes" %>
+
+          <%= f.submit %>
+        <% end %>
+      <% end %>
+  </div>
+</div>

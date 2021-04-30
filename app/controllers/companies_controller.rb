@@ -15,17 +15,17 @@ class CompaniesController < ApplicationController
 
   def new
     @company = Company.new
-
-    
   end
 
   def create
-    @company = Company.new(company_params)
+    
+    @company = Company.new(name: params[:company][:name])
+
     if @company.save
-      redirect_to companies_path(company)
-      flash[:notice] = " New Company: \n #{@project.title} was added."
+      redirect_to new_company_opening_path(@company)
+      flash[:notice] = " New Company: \n #{@company.name} was added."
     else
-      redirect_to companies_path(params: 'not-created')
+      redirect_to companies_path(params: 'not-created') # To do: add error message
       flash[:notice] = 'Company not added. '
     end
   end
@@ -65,12 +65,5 @@ class CompaniesController < ApplicationController
     end
   end
 
-  # Logic for adding openings when creating a new Company from browser
-  def openings_logic
-    weekdays = %w[Mon Tue Wed Thu Fri Sat Sun]
-    weekdays.each do |day|
-      @opening_hours = Opening.new(company_id: @company.id, day: day)
-      @opening_hours.day = day
-    end
-  end
+  
 end

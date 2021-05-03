@@ -77,52 +77,52 @@ class OpeningsController < ApplicationController
     # todo redirect_to company_tue_path(@company, day: #{@opening.next.day.downcase}) then case when won't be necessary (.next?)
     when 'Mon'
       # todo: make from: review work
-      @opening.update(opening_params)
-      if params[:from] = 'review'
+      @opening.update(opening_params) and return # stops redirection
+      if params[:from] == 'review'
+        raise
         redirect_to company_review_path(@company)
       else
         @opening.update(opening_params)
         redirect_to company_tue_path(@company, day: 'tue')
       end
     when 'Tue'
-      # params[:from] = review WORKED HERE, WHY?
       @opening.update(opening_params)
-      if params[:from] = 'review'
+      if params[:from] == 'review'
         redirect_to company_review_path(@company)
       else
         redirect_to company_wed_path(@company, day: 'wed')
       end
     when 'Wed'
       @opening.update(opening_params)
-      if params[:from] = 'review'
+      if params[:from] == 'review'
         redirect_to company_review_path(@company)
       else
         redirect_to company_thu_path(@company, day: 'thu')
       end
     when 'Thu'
       @opening.update(opening_params)
-      if params[:from] = 'review'
+      if params[:from] == 'review'
         redirect_to company_review_path(@company)
       else
         redirect_to company_fri_path(@company, day: 'fri')
       end
     when 'Fri'
       @opening.update(opening_params)
-      if params[:from] = 'review'
+      if params[:from] == 'review'
         redirect_to company_review_path(@company)
       else
         redirect_to company_sat_path(@company, day: 'sat')
       end
     when 'Sat'
       @opening.update(opening_params)
-      if params[:from] = 'review'
+      if params[:from] == 'review'
         redirect_to company_review_path(@company)
       else
         redirect_to company_sun_path(@company, day: 'sun')
       end
     when 'Sun'
       @opening.update(opening_params)
-      if params[:from] = 'review'
+      if params[:from] == 'review'
         redirect_to company_review_path(@company)
       else
         redirect_to company_review_path(@company)
@@ -131,7 +131,7 @@ class OpeningsController < ApplicationController
   end
 
   def opening_params
-    params.require(:opening).permit(:company_id, :day, :morning_opens_at_hours,
+    params.require(:opening).permit( :company_id, :day, :morning_opens_at_hours,
                                      :morning_opens_at_minutes, :morning_closes_at_hours,
                                      :morning_closes_at_minutes, :afternoon_opens_at_hours, 
                                      :afternoon_opens_at_minutes, :afternoon_closes_at_hours,

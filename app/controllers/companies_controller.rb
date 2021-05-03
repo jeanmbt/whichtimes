@@ -1,7 +1,7 @@
 # Companies
 class CompaniesController < ApplicationController
   def index
-    @companies = Company.all.page params[:page]
+      @companies = Company.all.page params[:page]
   end
 
   def show
@@ -14,19 +14,22 @@ class CompaniesController < ApplicationController
   end
 
   def new
-    @company = Company.new
+    if user_signed_in?
+      @company = Company.new
+    else
+      redirect_to new_user_session_path(from: 'add')
+    end
   end
 
   def create
     
-    @company = Company.new(name: params[:company][:name])
-
+    @company = Company.new(name: params[:company][:name], user: current_user)
     if @company.save
       install_openings(@company)
       redirect_to company_mon_path(@company, day: "mon")
       flash[:notice] = " New Company: \n #{@company.name} was added."
     else
-      redirect_to companies_path(params: 'not-created') # To do: add error message
+      # redirect_to companies_path(params: 'not-created') # To do: add error message
       flash[:notice] = 'Company not added. '
     end
   end
@@ -40,7 +43,6 @@ class CompaniesController < ApplicationController
   end
 
   def review
-
     @company = Company.find(params[:company_id])
     @today = Time.now.strftime('%a')
     @tags = clean_show

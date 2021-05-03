@@ -22,7 +22,8 @@ class CompaniesController < ApplicationController
     @company = Company.new(name: params[:company][:name])
 
     if @company.save
-      redirect_to new_company_opening_path(@company)
+      install_openings(@company)
+      redirect_to company_mon_path(@company, day: "mon")
       flash[:notice] = " New Company: \n #{@company.name} was added."
     else
       redirect_to companies_path(params: 'not-created') # To do: add error message
@@ -38,9 +39,38 @@ class CompaniesController < ApplicationController
     
   end
 
+  def review
+
+    @company = Company.find(params[:company_id])
+    @today = Time.now.strftime('%a')
+    @tags = clean_show
+    @days = %w[Mon Tue Wed Thu Fri Sat Sun]
+    @sym_days = %i[mon tue wed thu fri sat sun]
+    @c = 0
+    @all_openings = [
+        @mon = Opening.create(day: 'Mon', company_id: @company.id),
+        @tue = Opening.create(day: 'Tue', company_id: @company.id),
+        @wed = Opening.create(day: 'Wed', company_id: @company.id),
+        @thu = Opening.create(day: 'Thu', company_id: @company.id),
+        @fri = Opening.create(day: 'Fri', company_id: @company.id),
+        @sat = Opening.create(day: 'Sat', company_id: @company.id),
+        @sun = Opening.create(day: 'Sun', company_id: @company.id)
+        ]
+  end
+
   private
 
   # Creates a div to be passed on the view to display each day's opening hours
+  def install_openings(company)
+      @mon = Opening.create(day: 'Mon', company_id: company.id),
+      @tue = Opening.create(day: 'Tue', company_id: company.id),
+      @wed = Opening.create(day: 'Wed', company_id: company.id),
+      @thu = Opening.create(day: 'Thu', company_id: company.id),
+      @fri = Opening.create(day: 'Fri', company_id: company.id),
+      @sat = Opening.create(day: 'Sat', company_id: company.id),
+      @sun = Opening.create(day: 'Sun', company_id: company.id)
+  end
+
   def clean_show
     days = %i[ mon tue wed thu fri sat sun ]
     html_days = []

@@ -1,9 +1,10 @@
 <div class="content-container container">
   <div class="new-company-container">
     <h1>Now add <%= @company.name %>'s times:</h1>
-      <% @all_openings.each do |o| %>
-        <%= simple_form_for [@company, o] do |f| %>
-          <h2><%= o.day %>:</h2>
+      <%# @all_openings.each do |o| %>
+        <%= link_to  "to review", company_review_path(@company) %>
+        <%= simple_form_for [@company, @opening] do |f| %>
+          <h2><%= @opening.day %>:</h2>
           <%= f.input :closed_day, label: "closed" %>
           <%= f.input :always_open, label: "24h" %>
           <h4>mornings</h4>
@@ -26,6 +27,6 @@
 
           <%= f.submit %>
         <% end %>
-      <% end %>
+      <%# end %>
   </div>
 </div>

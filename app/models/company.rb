@@ -1,6 +1,7 @@
 # Be sure to restart your server when you modify this file.
 class Company < ApplicationRecord
 
+  belongs_to :user
   # returns all openings associated
 
   # Allows to fetch data accordingly
@@ -105,21 +106,29 @@ class Company < ApplicationRecord
 
   # Formats the hours example: 06:05 
   def morning_format(o)
-    morning_hours = "#{format '%02d', o.morning_opens_at_hours}:
-    #{format '%02d', o.morning_opens_at_minutes} - 
-    #{format '%02d', o.morning_closes_at_hours}:
-    #{format '%02d', o.morning_closes_at_minutes}"
-    morning_hours.gsub!(/\s/, '')
-    morning_hours.gsub!(/-/, ' - ')
+    if (o.morning_opens_at_hours && o.morning_opens_at_minutes && o.morning_closes_at_hours && o.morning_closes_at_minutes)
+      morning_hours = "#{format '%02d', o.morning_opens_at_hours}:
+      #{format '%02d', o.morning_opens_at_minutes} - 
+      #{format '%02d', o.morning_closes_at_hours}:
+      #{format '%02d', o.morning_closes_at_minutes}"
+      morning_hours.gsub!(/\s/, '')
+      morning_hours.gsub!(/-/, ' - ')
+    else
+      morning_hours = " - "
+    end
   end
 
   def noon_format(o)
-    noon_hours = "#{format '%02d', o.afternoon_opens_at_hours}:
-    #{format '%02d', o.afternoon_opens_at_minutes} - 
-    #{format '%02d', o.afternoon_closes_at_hours}:
-    #{format '%02d', o.afternoon_closes_at_minutes}"
-    noon_hours.gsub!(/\s/, '')
-    noon_hours.gsub!(/-/, ' - ')
+    if (o.morning_opens_at_hours && o.morning_opens_at_minutes && o.morning_closes_at_hours && o.morning_closes_at_minutes)
+      noon_hours = "#{format '%02d', o.afternoon_opens_at_hours}:
+      #{format '%02d', o.afternoon_opens_at_minutes} - 
+      #{format '%02d', o.afternoon_closes_at_hours}:
+      #{format '%02d', o.afternoon_closes_at_minutes}"
+      noon_hours.gsub!(/\s/, '')
+      noon_hours.gsub!(/-/, ' - ')
+    else
+      noon_hours = " - "
+    end
   end
 
   # Returns day opening hours formatted for easy reading

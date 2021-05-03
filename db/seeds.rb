@@ -4,7 +4,7 @@ sleep(2)
 puts "❌ Deleting previous seeds... \n "
 Opening.destroy_all
 Company.destroy_all
-
+User.destroy_all
 
 puts "📐 Setting up necessary methods and variables for iteration...  \n "
 
@@ -52,11 +52,16 @@ end
 # Creating sufixes for more realistic fake names :D
 sufix = %w[Healthcare Health Clinics Doctors Associated Gerontology Physiotherapy Care Oncology Cardiology]
 
+# Create users to hold seeded Companies
+5.times do
+  User.create(email: "user@user.com", password: "000000")
+end
+
 puts "🏥 Creating Companies... \n "
 
 # Create 8 Companies
 30.times do |i|
-  company = Company.create!(name: "#{Faker::Company.name} #{sufix.sample}")
+  company = Company.create!(name: "#{Faker::Company.name} #{sufix.sample}", user: User.all.sample)
   puts "#{i + 1}. #{company.name}"
 end
 companies = Company.all

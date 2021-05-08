@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
 
+  # API
+  
+  namespace :api, defaults: { format: :json } do
+    namespace :v1 do
+      resources :companies, only: %i[ index ]
+    end
+  end
 
 
   get 'pages/dashboard'
@@ -8,6 +15,7 @@ Rails.application.routes.draw do
   root to: 'companies#index' 
   resources :companies  do
     resources :openings, except: %i[ new show index ]
+    # new openings routes
     get 'mon', to: 'openings#mon', as: "mon"
     get 'tue', to: 'openings#tue', as: "tue"
     get 'wed', to: 'openings#wed', as: "wed"
@@ -15,6 +23,7 @@ Rails.application.routes.draw do
     get 'fri', to: 'openings#fri', as: "fri"
     get 'sat', to: 'openings#sat', as: "sat"
     get 'sun', to: 'openings#sun', as: "sun"
+    # check out company route
     get 'review', to: 'companies#review', as: "review"
   end
 

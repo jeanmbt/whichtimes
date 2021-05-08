@@ -4,8 +4,8 @@ class Api::V1::BaseController < ActionController::API
   # after_action :verify_authorized, except: :index
   # after_action :verify_policy_scoped, only: :index
 
-  # rescue_from Pundit::NotAuthorizedError,   with: :user_not_authorized
-  # rescue_from ActiveRecord::RecordNotFound, with: :not_found
+  rescue_from Pundit::NotAuthorizedError,   with: :user_not_authorized
+  rescue_from ActiveRecord::RecordNotFound, with: :not_found
   
   private
 

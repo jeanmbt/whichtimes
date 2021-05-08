@@ -55,6 +55,10 @@ class Company < ApplicationRecord
     }
   end
   
+  def opening_hours
+    find_hours[:all_openings]
+  end
+  
   private
 
   # checks if the Opening is a Normal day, a Closed day or a 24H day.

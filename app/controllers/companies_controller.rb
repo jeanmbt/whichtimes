@@ -1,14 +1,11 @@
 # Companies
 # todo - Make it dry
-
-
 class CompaniesController < ApplicationController
-  skip_before_action :authenticate_user!, only: %i[index show]
-  before_action :authenticate_user!
+  # skip_before_action :authenticate_user!, only: %i[index show]
+  before_action :authenticate_user!, only: %i[new create edit update review]
 
   def index
       @companies = policy_scope(Company.all.page params[:page]).order(created_at: :desc)
-      # @companies = policy_scope(Company).order(created_at: :desc)
   end
 
   def show
@@ -30,7 +27,6 @@ class CompaniesController < ApplicationController
   end
 
   def create
-    
     @company = Company.new(name: params[:company][:name], user: current_user)
     if @company.save
       install_openings(@company)

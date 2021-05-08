@@ -1,8 +1,14 @@
 # Companies
 # todo - Make it dry
+
+
 class CompaniesController < ApplicationController
+  skip_before_action :authenticate_user!, only: %i[index show]
+  before_action :authenticate_user!
+
   def index
-      @companies = Company.all.page params[:page]
+      @companies = policy_scope(Company.all.page params[:page]).order(created_at: :desc)
+      # @companies = policy_scope(Company).order(created_at: :desc)
   end
 
   def show
@@ -12,6 +18,7 @@ class CompaniesController < ApplicationController
     @days = %w[Mon Tue Wed Thu Fri Sat Sun]
     @sym_days = %i[mon tue wed thu fri sat sun]
     @c = 0
+    authorize @company
   end
 
   def new

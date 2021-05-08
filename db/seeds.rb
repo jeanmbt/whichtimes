@@ -53,9 +53,9 @@ end
 sufix = %w[Healthcare Health Clinics Doctors Associated Gerontology Physiotherapy Care Oncology Cardiology]
 
 # Create users to hold seeded Companies
-5.times do
-  User.create(email: "user@user.com", password: "000000")
-end
+User.create(email: "user@user.com", password: "000000")
+User.create(email: "whichtimes@whichtimes.com", password: "adminwhichtimes", admin: true)
+
 
 puts "🏥 Creating Companies... \n "
 

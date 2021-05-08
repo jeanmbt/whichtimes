@@ -1,8 +1,8 @@
 class Api::V1::BaseController < ActionController::API
-  # include Pundit
+  include Pundit
 
-  # after_action :verify_authorized, except: :index
-  # after_action :verify_policy_scoped, only: :index
+  after_action :authenticate_user!, only: %i[index show]
+  after_action :authenticate_user!, only: %i[new create edit update review]
 
   rescue_from Pundit::NotAuthorizedError,   with: :user_not_authorized
   rescue_from ActiveRecord::RecordNotFound, with: :not_found

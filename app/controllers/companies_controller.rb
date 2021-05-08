@@ -1,21 +1,28 @@
 # Companies
 # todo - Make it dry
+# require 'json'
+# require 'open-uri'
+
 class CompaniesController < ApplicationController
-  # skip_before_action :authenticate_user!, only: %i[index show]
+  include Pundit
+  skip_before_action :authenticate_user!, only: %i[index show]
   before_action :authenticate_user!, only: %i[new create edit update review]
 
   def index
       @companies = policy_scope(Company.all.page params[:page]).order(created_at: :desc)
+      # url = "http://localhost:3000/api/v1/companies"
+      # company_serialized = URI.open(url).read
+      # @companies = JSON.parse(company_serialized)#page params[:page])
   end
 
   def show
     @company = Company.find(params[:id])
+    authorize @company
     @today = Time.now.strftime('%a')
     @tags = clean_show
     @days = %w[Mon Tue Wed Thu Fri Sat Sun]
     @sym_days = %i[mon tue wed thu fri sat sun]
     @c = 0
-    authorize @company
   end
 
   def new

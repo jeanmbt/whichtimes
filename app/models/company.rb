@@ -2,10 +2,9 @@
 class Company < ApplicationRecord
 
   belongs_to :user
-  # returns all openings associated
 
-  # Allows to fetch data accordingly
-  # Company.find_hours[:mon][:morning] => 10:00 - 12:00
+  # Returns all openings associated, allows to fetch data accordingly
+  # usage: Company.find_hours[:mon][:morning] => 10:00 - 12:00
   # todo change to class!
   def find_hours
     { mon:

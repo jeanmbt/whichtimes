@@ -1,4 +1,5 @@
 # Companies
+# todo - Make it dry
 class CompaniesController < ApplicationController
   def index
       @companies = Company.all.page params[:page]

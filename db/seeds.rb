@@ -1,4 +1,4 @@
-puts " \n ////////   Seeds for Careloop's challenge by Jean Michel Battirola starting...  //////// \n \n \n \n "
+puts " \n ////////.  ...  //////// \n \n \n \n "
 sleep(2)
 
 puts "❌ Deleting previous seeds... \n "
